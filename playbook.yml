@@ -63,7 +63,7 @@
       args:
         tags:
           Type: webserver
-          Name: TrafficTerminal-01
+          Name: WordPress-Nginx
 
     - name: associate an elastic IP with an instance
       ec2_eip:
@@ -235,18 +235,18 @@
       # Add USER
     - name: Add a new user
       user:
-        name: devops
+        name: "{{ user_name }}"
         shell: /bin/bash
         password: "{{ user_password }}"
 
     - name: Add devops user to the sudoers
       copy:
-        dest: "/etc/sudoers.d/devops"
+        dest: "/etc/sudoers.d/{{ user_name }}"
         content: "devops  ALL=(ALL)  NOPASSWD: ALL"
 
     - name: Deploy SSH Key
       authorized_key:
-        user: devops
+        user: "{{ user_name }}"
         key: "{{ lookup('file', './user_key_file') }}"
         state: present
 

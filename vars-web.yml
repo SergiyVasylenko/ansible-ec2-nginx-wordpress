@@ -18,4 +18,5 @@ https_host: "vasylenko.ddns.net"
 https_conf: "vasylenko.ddns.net.conf"
 https_port: "443"
 
+user_name: administrator
 user_password: fgCBv32!ws8uH
