@@ -20,3 +20,13 @@ https_port: "443"
 
 user_name: administrator
 user_password: fgCBv32!ws8uH
+
+# Variables for Role Certbot certs.
+certbot_create_if_missing: false
+certbot_create_method: standalone
+certbot_admin_email: sergiy.vasylenko@gmail.com
+certbot_create_standalone_stop_services:
+  - nginx
+nginx_vhosts:
+    - {servername: "vasylenko.ddns.net", documentroot: "/var/www/vasylenko.ddns.net"}
+#    - {servername: "abcyourdomain1.com", documentroot: "/var/www/abcyourdomain1.com"}
